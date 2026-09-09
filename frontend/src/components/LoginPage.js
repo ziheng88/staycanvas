@@ -129,3 +129,19 @@ class LoginPage extends React.Component {
             shape="round"
             type="primary"
           >
+            Log in
+          </Button>
+          <Button
+            onClick={this.handleRegister}
+            disabled={this.state.loading}
+            shape="round"
+          >
+            Register
+          </Button>
+        </Space>
+      </div>
+    );
+  }
+}
+
+export default LoginPage;

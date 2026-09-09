@@ -1,35 +1,3 @@
-import { Form, Input } from "antd";
-import React from "react";
-
-
-class UploadStay extends React.Component {
-  render() {
-    return (
-      <Form style={{ maxWidth: 1000, margin: "auto" }}>
-        <Form.Item name="name" label="Name" rules={[{ required: true }]}>
-          <Input />
-        </Form.Item>
-        <Form.Item name="address" label="Address" rules={[{ required: true }]}>
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="description"
-          label="Description"
-          rules={[{ required: true }]}
-        >
-          <Input.TextArea autoSize={{ minRows: 2, maxRows: 6 }} />
-        </Form.Item>
-      </Form>
-    );
-  }
-}
-
-
-export default UploadStay;
-
-
-
-Uploadstay
 import React from "react";
 import { Form, Input, InputNumber, Button, message } from "antd";
 import { uploadStay } from "../utils";
@@ -136,36 +104,3 @@ class UploadStay extends React.Component {
 
 export default UploadStay;
 
-
-
-
-
-
-
-
-Hosthomepage
-import React from "react";
-import { Tabs } from "antd";
-import UploadStay from "./UploadStay";
-
-
-const { TabPane } = Tabs;
-
-
-class HostHomePage extends React.Component {
-  render() {
-    return (
-      <Tabs defaultActiveKey="1" destroyInactiveTabPane={true}>
-        <TabPane tab="My Stays" key="1">
-          <div>My Stays Content</div>
-        </TabPane>
-        <TabPane tab="Upload Stay" key="2">
-          <UploadStay />
-        </TabPane>
-      </Tabs>
-    );
-  }
-}
-
-
-export default HostHomePage;

@@ -3,6 +3,7 @@ import { UserOutlined } from "@ant-design/icons";
 import React from "react";
 import LoginPage from "./components/LoginPage";
 import HostHomePage from "./components/HostHomePage";
+import GuestHomePage from "./components/GuestHomePage";
 
 
 const { Header, Content } = Layout;
@@ -55,10 +56,33 @@ class App extends React.Component {
     }
 
 
-    return <div>guest home page</div>;
+    return <GuestHomePage />;
   };
 
 
   userMenu = (
     <Menu>
       <Menu.Item key="logout" onClick={this.handleLogOut}>
+        Log out
+      </Menu.Item>
+    </Menu>
+  );
+
+  render() {
+    return (
+      <Layout>
+        <Header style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div style={{ color: "white", fontSize: 20, fontWeight: 600 }}>Staybooking</div>
+          {this.state.authed && (
+            <Dropdown overlay={this.userMenu} trigger={["click"]}>
+              <Button icon={<UserOutlined />}>Account</Button>
+            </Dropdown>
+          )}
+        </Header>
+        <Content style={{ padding: 24 }}>{this.renderContent()}</Content>
+      </Layout>
+    );
+  }
+}
+
+export default App;
